@@ -17,7 +17,8 @@ RUN echo "deb http://ppa.launchpad.net/nginx/stable/ubuntu trusty main" > /etc/a
     rm /etc/nginx/sites-enabled/default && \
     rm -rf /var/lib/apt/lists/* && \
     echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
-    chown -R www-data:www-data /var/lib/nginx
+    chown -R www-data:www-data /var/lib/nginx && \
+    mkdir -p /opt/etc/nginx/sites-enabled
 
 # Define mountable directories.
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
@@ -26,7 +27,7 @@ VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/v
 WORKDIR /etc/nginx
 
 # Define default command.
-CMD ["nginx"]
+CMD ["service", "nginx", "start"]
 
 # Expose ports.
 EXPOSE 80 443
