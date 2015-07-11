@@ -8,10 +8,10 @@ FROM buddho/ubuntu:14.04.2-1
 
 MAINTAINER llinder@buddho.io
 
-RUN echo "deb http://ppa.launchpad.net/nginx/development/ubuntu trusty main" > /etc/apt/sources.list.d/nginx.list && \
+RUN echo "deb http://ppa.launchpad.net/nginx/stable/ubuntu trusty main" > /etc/apt/sources.list.d/nginx.list && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8B3981E7A6852F782CC4951600A6F0A3C300EE8C && \
     apt-get update && \
-    apt-get install curl nginx=1.9.2* -y && \
+    apt-get install curl nginx=1.8.0* -y && \
     curl -L https://github.com/kelseyhightower/confd/releases/download/v0.10.0/confd-0.10.0-linux-amd64 -o /usr/local/sbin/confd && \
     chmod 755 /usr/local/sbin/confd && \
     rm /etc/nginx/sites-enabled/default && \
