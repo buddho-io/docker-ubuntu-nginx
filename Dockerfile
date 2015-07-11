@@ -8,7 +8,7 @@ FROM buddho/ubuntu:14.04.2-1
 
 MAINTAINER llinder@buddho.io
 
-RUN echo "deb http://ppa.launchpad.net/nginx/stable/ubuntu trusty main" > /etc/apt/sources.list.d/nginx.list && \
+RUN echo "deb http://ppa.launchpad.net/nginx/development/ubuntu trusty main" > /etc/apt/sources.list.d/nginx.list && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8B3981E7A6852F782CC4951600A6F0A3C300EE8C && \
     apt-get update && \
     apt-get install curl nginx=1.9.2* -y && \
